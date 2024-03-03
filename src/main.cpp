@@ -106,6 +106,7 @@ public:
 				auto noRateBtn = CCMenuItemSpriteExtra::create(
 					infoBtnSpr, this, menu_selector(EvilLevelInfoLayer::noRateInfo)
 				);
+				// booo android
 				#if defined(GEODE_IS_ANDROID)
 					noRateBtn->setPosition({232.250, 212});
 				#else
