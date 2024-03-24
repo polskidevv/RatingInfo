@@ -48,7 +48,7 @@ public:
 		this->addChild(menu);
 		menu->setPosition(0, 0);
 
-        req = level->m_starsRequested;
+        req = level->m_starsRequested.value();
 
 		//stupid workaround for the feature button, dont ask
 		auto featureIconCoin = CCSprite::createWithSpriteFrameName("GJ_featuredCoin_001.png");
