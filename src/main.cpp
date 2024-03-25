@@ -13,11 +13,13 @@ private:
     int req;
 	bool plat;
 public:
+	// the below code snippet was crafted by acaruso
 	cocos2d::CCNode* getChildBySpriteFrameNameRecursive(cocos2d::CCNode* parent, char const* name) {
 		return findFirstChildRecursive<cocos2d::CCNode>(parent, [=](auto* spr) {
 			return isSpriteFrameName(spr, name);
 		});
 	}
+	// the above code snippet was crafted by acaruso
 	
     void info(CCObject *sender) {
         FLAlertLayer::create(
@@ -168,8 +170,8 @@ public:
 		}
 		if (level->m_featured)
 		{
-			btnFeature->setPosition(pos);
 			if (getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png")) {
+				btnFeature->setPosition(pos);
 				featureIconCoin->setZOrder(-3);
 				menu->addChild(btnFeature);
 			} else {
