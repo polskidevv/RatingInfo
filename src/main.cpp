@@ -115,7 +115,7 @@ public:
 			auto originalFeatureIcon = dynamic_cast<CCSprite*>(originalIcon->getChildren()->objectAtIndex(0));
 			originalFeatureIcon->setOpacity(0);
 			// takayama_001.png
-			if (getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png"))  {
+			if (!getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png"))  {
 				if (level->m_isEpic == 1) {
 					btnFeature->setVisible(false);
 					auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin_001.png");
@@ -170,7 +170,7 @@ public:
 		}
 		if (level->m_featured)
 		{
-			if (getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png")) {
+			if (!getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png")) {
 				btnFeature->setPosition(pos);
 				featureIconCoin->setZOrder(-3);
 				menu->addChild(btnFeature);
