@@ -13,6 +13,14 @@ private:
     int req;
 	bool plat;
 public:
+	// the below code snippet was crafted by acaruso
+	cocos2d::CCNode* getChildBySpriteFrameNameRecursive(cocos2d::CCNode* parent, char const* name) {
+		return findFirstChildRecursive<cocos2d::CCNode>(parent, [=](auto* spr) {
+			return isSpriteFrameName(spr, name);
+		});
+	}
+	// the above code snippet was crafted by acaruso
+	
     void info(CCObject *sender) {
         FLAlertLayer::create(
             "Rating",
@@ -81,8 +89,7 @@ public:
     }
 
 	bool init(GJGameLevel* level, bool p1) {
-		if (!LevelInfoLayer::init(level, p1))
-            return false;
+		if (!LevelInfoLayer::init(level, p1)) { return false; }
 
         auto originalIcon = static_cast<CCSprite*>(this->getChildByID("difficulty-sprite"));
 		auto starIcon = static_cast<CCSprite*>(this->getChildByID("stars-icon"));
@@ -107,44 +114,87 @@ public:
 		if (level->m_isEpic) {
 			auto originalFeatureIcon = dynamic_cast<CCSprite*>(originalIcon->getChildren()->objectAtIndex(0));
 			originalFeatureIcon->setOpacity(0);
-
-
-			if (level->m_isEpic == 1) {
-				btnFeature->setVisible(false);
-				auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin_001.png");
-				auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
-					featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
-				);
-				featuredCoinBtn->setPosition(pos);
-				featureIcon->setZOrder(-2);
-				menu->addChild(featuredCoinBtn);
-			}
-			if (level->m_isEpic == 2) {
-				btnFeature->setVisible(false);
-				auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin2_001.png");
-				auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
-					featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
-				);
-				featuredCoinBtn->setPosition(pos);
-				featureIcon->setZOrder(-2);
-				menu->addChild(featuredCoinBtn);
-			}
-			if (level->m_isEpic == 3) {
-				btnFeature->setVisible(false);
-				auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin3_001.png");
-				auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
-					featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
-				);
-				featuredCoinBtn->setPosition(pos);
-				featureIcon->setZOrder(-2);
-				menu->addChild(featuredCoinBtn);
+			// takayama_001.png
+			if (!getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png"))  {
+				if (level->m_isEpic == 1) {
+					btnFeature->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(pos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				}
+				if (level->m_isEpic == 2) {
+					btnFeature->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin2_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(pos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				}
+				if (level->m_isEpic == 3) {
+					btnFeature->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("GJ_epicCoin3_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(pos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				}
+			} else {
+				if(plat) {
+					starIcon->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("moon_small01_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(starPos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				} else {
+					starIcon->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("star_small01_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(starPos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				}
 			}
 		}
 		if (level->m_featured)
 		{
-			btnFeature->setPosition(pos);
-			featureIconCoin->setZOrder(-3);
+			if (!getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn01_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn02_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn03_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn04_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn05_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/horn06_001.png") && !getChildBySpriteFrameNameRecursive(this, "acaruso.horn/takayama_001.png")) {
+				btnFeature->setPosition(pos);
+				featureIconCoin->setZOrder(-3);
 				menu->addChild(btnFeature);
+			} else {
+				if(plat) {
+					starIcon->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("moon_small01_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(starPos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				} else {
+					starIcon->setVisible(false);
+					auto featureIcon = CCSprite::createWithSpriteFrameName("star_small01_001.png");
+					auto featuredCoinBtn = CCMenuItemSpriteExtra::create(
+						featureIcon, this, menu_selector(EvilLevelInfoLayer::info)
+					);
+					featuredCoinBtn->setPosition(starPos);
+					featureIcon->setZOrder(-2);
+					menu->addChild(featuredCoinBtn);
+				}
+			}
 			log::debug("featured level");
 		}
 		else {
@@ -155,17 +205,12 @@ public:
 					auto noRateBtn = CCMenuItemSpriteExtra::create(
 						infoBtnSpr, this, menu_selector(EvilLevelInfoLayer::noRateInfo)
 					);
-					// booo android
-					#if defined(GEODE_IS_ANDROID)
-						noRateBtn->setPosition({232.250, 212});
-					#else
-						noRateBtn->setPosition({170.250, 212});
-					#endif
+					auto diffSprite = getChildByIDRecursive("difficulty-sprite");
+					noRateBtn->setPosition({diffSprite->getPositionX() + 14, diffSprite->getPositionY() + 19});
 					menu->addChild(noRateBtn);
 					menu->setZOrder(3);
 					infoBtnSpr->setScale(0.65);
-				}
-				else if(level->m_stars > 0 && !level->m_featured) {
+				} else if(level->m_stars > 0 && !level->m_featured) {
 					if(plat) {
 						starIcon->setVisible(false);
 						auto featureIcon = CCSprite::createWithSpriteFrameName("moon_small01_001.png");
