@@ -1,3 +1,3 @@
 # Rating Info
 Adds basic info about ratings.
-If you are on a star-only level, click on the star icon.
+Click on the star icon to learn more, or the info icon for unrated levels to learn of stars requested.
